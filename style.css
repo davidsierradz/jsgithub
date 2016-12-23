@@ -1,0 +1,12 @@
+#main-container {
+  margin-top: 104px;
+}
+
+.nav-tabs {
+  border-bottom: none;
+}
+
+.nav-link.active {
+  background-color: transparent !important;
+  border-bottom-color: #ddd !important;
+}
