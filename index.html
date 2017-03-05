@@ -47,7 +47,9 @@
           <div class="tab-content">
             <div class="tab-pane active fade in show" id="home" role="tabpanel">
               <h2 class="text-xs-center">Home</h2>
-              <p>home</p>
+              <p>Enter your github username:</p>
+              <input id="github-username-input" type="text">
+              <button id="github-username-button" type="button">Go!</button>
             </div>
             <div class="tab-pane fade" id="repositories" role="tabpanel">
               <h2 class="text-xs-center">My Repositories</h2>
@@ -56,10 +58,10 @@
                   <tr>
                     <th>#</th>
                     <th>Repo Name</th>
-                    <th>Stars</th>
+                    <th>Language</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="github-user-repos-tbody">
                   <tr>
                     <th scope="row">1</th>
                     <td>JSgithub</td>
@@ -81,10 +83,34 @@
             <div class="tab-pane fade" id="friends" role="tabpanel">
               <h2 class="text-xs-center">My Friends</h2>
               <p>friends</p>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Friend Name</th>
+                  </tr>
+                </thead>
+                <tbody id="github-user-friends-tbody">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>John Doe</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Maria Doe</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Mr. Poopy Butthole</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <div class="tab-pane fade" id="about" role="tabpanel">
               <h2 class="text-xs-center">About</h2>
-              <p>about</p>
+              <p>Name: <span id="github-user-span-name"></span></p>
+              <p>Company: <span id="github-user-span-company"></span></p>
+              <p>Location: <span id="github-user-span-location"></span></p>
             </div>
           </div>
         </div>
@@ -95,5 +121,6 @@
     <script src="vendor/jquery-3.1.1.slim.min.js"></script>
     <script src="vendor/tether.min.js"></script>
     <script src="vendor/bootstrap.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
