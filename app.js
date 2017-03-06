@@ -1,32 +1,25 @@
 const GITHUB_API_URL = 'https://api.github.com/';
 
-let jsonResource;
-
 let githubUsernameButton = document.querySelector('#github-username-button');
 let githubUsernameInput;
 
-githubUsernameButton.addEventListener('click', function(e) {
+githubUsernameButton.addEventListener('click', e => {
   githubUsernameInput = document.querySelector('#github-username-input').value;
 
   fetch(GITHUB_API_URL + 'users/' + githubUsernameInput)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(json) {
-      jsonResource = json;
-      document.querySelector('#github-user-span-name').innerHTML = jsonResource.name;
-      document.querySelector('#github-user-span-company').innerHTML = jsonResource.company;
-      document.querySelector('#github-user-span-location').innerHTML = jsonResource.location;
+    .then(response => response.json())
+    .then(json => {
+      document.querySelector('#github-user-span-name').innerHTML = json.name;
+      document.querySelector('#github-user-span-company').innerHTML = json.company;
+      document.querySelector('#github-user-span-location').innerHTML = json.location;
     });
 
   fetch(GITHUB_API_URL + 'users/' + githubUsernameInput + '/repos')
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(json) {
+    .then(response => response.json())
+    .then(json => {
       let githubUserReposTbody = document.querySelector('#github-user-repos-tbody');
       githubUserReposTbody.innerHTML = '';
-      json.forEach(function(repo, index) {
+      json.forEach((repo, index) => {
         githubUserReposTbody.innerHTML +=
           `
             <tr>
@@ -39,13 +32,11 @@ githubUsernameButton.addEventListener('click', function(e) {
     });
 
   fetch(GITHUB_API_URL + 'users/' + githubUsernameInput + '/following')
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(json) {
+    .then(response => response.json())
+    .then(json => {
       let githubUserFriendsTbody = document.querySelector('#github-user-friends-tbody');
       githubUserFriendsTbody.innerHTML = '';
-      json.forEach(function(friend, index) {
+      json.forEach((friend, index) => {
         githubUserFriendsTbody.innerHTML +=
           `
             <tr>
